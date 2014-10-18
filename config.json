@@ -1,0 +1,6 @@
+{ 
+  "source": {
+    "z-wave": "/dev/blah",
+    "zigbee": "/dev/cu.usbserial-AD01SUG5"
+  }
+}

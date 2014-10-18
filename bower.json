@@ -1,0 +1,19 @@
+{
+  "name": "hobbystat",
+  "description": "Homemade smart thermostat and home automation",
+  "repository": "git@github.com:bencpeters/hobbystat.git",
+  "license": "MIT",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "bootstrap": "~3.2.x",
+    "jquery": "*",
+    "angular-bootstrap": "~>0.11",
+    "html5-boilerplate": "~4.3.0",
+    "angular-socket-io": "~>0.6"
+  }
+}

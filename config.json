@@ -1,6 +1,6 @@
 { 
-  "source": {
-    "z-wave": "/dev/blah",
+  "sources": {
+    "zWave": "/dev/cu.SLAB_USBtoUART",
     "zigbee": "/dev/cu.usbserial-AD01SUG5"
   }
 }

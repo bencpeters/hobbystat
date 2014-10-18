@@ -15,6 +15,11 @@ var staticRoutes = require('./routes/static'),
     api = require('./routes/api'),
     users = require('./routes/users');
 
+var sensors = require('./data/sensors'),
+    zWave = require('./data/zwave')(config, sensors);
+
+api.connectSensors(sensors);
+
 var app = express(),
     server = require('http').Server(app),
     io = require('socket.io')(server);

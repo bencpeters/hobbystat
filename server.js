@@ -9,11 +9,28 @@ var express = require('express'),
     debug = require('debug')('hobbystat'),
     cookieParser = require('cookie-parser'),
     config = require('./config.json'),
+    MongoClient = require('mongodb').MongoClient,
+    MongoServer = require('mongodb').Server,
     bodyParser = require('body-parser');
 
 var staticRoutes = require('./routes/static'),
     api = require('./routes/api'),
     users = require('./routes/users');
+
+var sensors = require('./data/sensors'),
+    zWave = require('./data/zwave')(config, sensors);
+
+var mongoHost = config.db && config.db.mongo && config.db.mongo.host ? config.db.mongo.host : 'localhost',
+    mongoPort = config.db && config.db.mongo && config.db.mongo.port ? config.db.mongo.port : 27017,
+    dbName = config.db && config.db.mongo && config.db.mongo.dbName ? config.db.mongo.dbName : "sensorData",
+    mongoClient = new MongoClient(new MongoServer(mongoHost, mongoPort));
+
+mongoClient.open(function(err, mongoClient) {
+  var db = mongoClient.db(dbName);
+  sensors.connectDb(db);
+});
+
+api.connectSensors(sensors);
 
 var app = express(),
     server = require('http').Server(app),

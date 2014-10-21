@@ -97,7 +97,7 @@ var setup = function(newConfig, dataModel) {
             valName = labels[val.label];
           }
           if (valName) {
-            sensor.updateValue(valName, val.value, { type: valName, unit: val.unit });
+            sensor.updateValue(valName, val.value, { type: valName, unit: val.units });
           }
         };
 

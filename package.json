@@ -24,6 +24,7 @@
     "less-middleware": "1.0.x",
     "socket.io": "1.x",
     "serialport": "1.4.x",
+    "mongodb": "*",
     "openzwave": "*"
   },
   "scripts": {
